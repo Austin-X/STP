@@ -9,3 +9,9 @@ A program used to generate timetables for high school students at Victoria Park 
 
 # Javadoc
 To view the javadoc for this program, go to the "Documentations" folder, then go to the "Javadoc" folder, then open "index.html"
+
+# Preview
+![image](https://user-images.githubusercontent.com/32133198/189811549-cb016020-6578-4d01-a6e2-9179ab5b8bb2.png)
+![image](https://user-images.githubusercontent.com/32133198/189812050-3a0dc127-3ba7-409d-acbb-b194c2ce8486.png)
+![image](https://user-images.githubusercontent.com/32133198/189813067-2ddbe650-f8a1-4682-85ef-9550306da642.png)
+![image](https://user-images.githubusercontent.com/32133198/189813161-54c3d667-710a-47f8-9b0e-125691c2b207.png)
