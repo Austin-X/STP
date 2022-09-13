@@ -8,4 +8,4 @@ A program used to generate timetables for high school students at Victoria Park 
 3. Go to the "Projects" directory and open the StudentTimetable.jar file
 
 # Javadoc
-To view the javadoc for this program, open Documentation/Javadoc/index.html
+To view the javadoc for this program, go to the "Documentations" folder, then go to the "Javadoc" folder, then open "index.html"
