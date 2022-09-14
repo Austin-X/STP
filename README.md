@@ -1,4 +1,4 @@
-# Student Timetable Program
+# Student Timetable Program (STP)
 A program used to generate timetables for high school students at Victoria Park High School
 
 # Installation
