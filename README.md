@@ -15,4 +15,4 @@ A program used to generate timetables for high school students at Victoria Park 
 To view the javadoc for this program, go to the "Documentations" folder, then go to the "Javadoc" folder, then open "index.html"
 
 # Source Code
-The source code for this project is under 
+The source code for this project is in StudentTimetable/src
