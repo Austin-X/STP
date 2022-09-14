@@ -13,8 +13,8 @@ public class ViewCoursesPage extends JFrame implements ActionListener {
 	
 	// All of the courses in our school stored in a 29 x 7 array called "courses" of type "String"
 	private final String[][] courses = 
-    {{"", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "Grade 12", "Grade 12"},
-    {"English", "<html>ENG1D1 - Grade 9 English<br>Prerequisite(s): none</html>", "<html>ENG2D1 - Grade 10 English<br>Prerequisite(s): ENG1D1 or ENG1D7</html>", "<html>ENG3U1 - Grade 11 English<br>Prerequisite(s): ENG2D1 or ENG2D7</html>", "<html>ENG4U1 - Grade 12 English<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", "<html>ETS4U1 - Grade 12 Film Studies<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", ""},
+	{{"", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "Grade 12", "Grade 12"},
+	{"English", "<html>ENG1D1 - Grade 9 English<br>Prerequisite(s): none</html>", "<html>ENG2D1 - Grade 10 English<br>Prerequisite(s): ENG1D1 or ENG1D7</html>", "<html>ENG3U1 - Grade 11 English<br>Prerequisite(s): ENG2D1 or ENG2D7</html>", "<html>ENG4U1 - Grade 12 English<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", "<html>ETS4U1 - Grade 12 Film Studies<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", ""},
 	{"Math", "<html>MTH1W1 - Grade 9 Mathematics<br>Prerequisite(s): none</html>", "<html>MPM2D1 - Grade 10 Principles of Mathematics<br>Prerequisite(s): MTH1W1 or MPM1D7</html>", "<html>MCR3U1 - Grade 11 Functions<br>Prerequisite(s): MPM2D1 or MPM2D7</html>", "<html>MHF4U1 - Grade 11 Advanced Functions<br>Prerequisite(s): MCR3U1 or MCR3U7</html>", "<html>MCV4U1 - Grade 12 Calculus and Vectors<br>Prerequisite(s): MHF4U1 or MHF4U7</html>", ""},
 	{"Science", "<html>SNC1D1 - Grade 9 Science<br>Prerequisite(s): none</html>", "<html>SNC2D1 - Grade 10 Science<br>Prerequisite(s): SNC1D1 or SNC1D7</html>", "", "", "", ""},
 	{"Computer Studies", "", "<html>ICS2O1 - Grade 10 Introduction to Computer Studies<br>Prerequisite(s): none</html>", "<html>ICS3U1 - Grade 11 Introduction to Computer Science<br>Prerequisite(s): none</html>", "<html>ICS4U1 - Grade 12 Computer Science<br>Prerequisite(s): ICS3U1 or ICS3U7</html>", "", ""},
@@ -55,23 +55,23 @@ public class ViewCoursesPage extends JFrame implements ActionListener {
 		
 		setSize(1100, 800);
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setResizable(false);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	    
-	    JPanel canvas = new JPanel();
-	    canvas.setLayout(new GridLayout(0, 7));
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-	    // This block of code sets up the top row of buttons for this page
-	    buttonArr[0][0] = new Button(courses[0][0]);
-	    canvas.add(buttonArr[0][0]);
-	    for (int i = 1; i < courses[0].length; i ++) {
-	    	buttonArr[0][i] = new Button(courses[0][i]);
-	    	buttonArr[0][i].setBackground(Color.CYAN);
-	    	canvas.add(buttonArr[0][i]);
-	    }
-	    
-	    // Setting up all other buttons in the page
+		JPanel canvas = new JPanel();
+		canvas.setLayout(new GridLayout(0, 7));
+
+		// This block of code sets up the top row of buttons for this page
+		buttonArr[0][0] = new Button(courses[0][0]);
+		canvas.add(buttonArr[0][0]);
+		for (int i = 1; i < courses[0].length; i ++) {
+			buttonArr[0][i] = new Button(courses[0][i]);
+			buttonArr[0][i].setBackground(Color.CYAN);
+			canvas.add(buttonArr[0][i]);
+		}
+
+		// Setting up all other buttons in the page
 		for (int i = 1; i < courses.length; i ++) {
 			for (int j = 0; j < courses[i].length; j ++) {
 				if (j == 0) {
@@ -91,22 +91,22 @@ public class ViewCoursesPage extends JFrame implements ActionListener {
 						if (i == courses.length - 1) buttonArr[i][j] = new Button(courses[i][j]);
 						else buttonArr[i][j] = new Button(courses[i][j].substring(6, 12));
 					}
-					
+
 					buttonArr[i][j].addActionListener(this);
 				}
 				canvas.add(buttonArr[i][j]);
 			}
 		}
 
-	    infoLabel = new MyTextLabel("Click on a course code to view its course description.", SwingConstants.CENTER);
-	    infoLabel.setTextLabel(400, 40, 0, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
-	    
-	    backButton = new MyButton("Back");
-	    backButton.addActionListener(this);
-	    
-	    add(infoLabel, BorderLayout.NORTH);
-	    add(backButton, BorderLayout.WEST);
-	    add(canvas);
+		infoLabel = new MyTextLabel("Click on a course code to view its course description.", SwingConstants.CENTER);
+		infoLabel.setTextLabel(400, 40, 0, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
+
+		backButton = new MyButton("Back");
+		backButton.addActionListener(this);
+
+		add(infoLabel, BorderLayout.NORTH);
+		add(backButton, BorderLayout.WEST);
+		add(canvas);
 	}
 	
 	public void paint(Graphics g) {
