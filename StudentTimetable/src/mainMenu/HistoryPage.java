@@ -29,21 +29,21 @@ public class HistoryPage extends JFrame implements ActionListener {
 		JScrollPane scroll = new JScrollPane(display);
 		scroll.setVerticalScrollBarPolicy (ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	    
-	    backButton = new MyButton("Back");
-	    backButton.addActionListener(this);
-	    
-	    clearHistoryButton = new MyButton("Clear History");
-	    clearHistoryButton.addActionListener(this);
+		backButton = new MyButton("Back");
+		backButton.addActionListener(this);
 
-	    canvas.add(backButton);
+		clearHistoryButton = new MyButton("Clear History");
+		clearHistoryButton.addActionListener(this);
+
+		canvas.add(backButton);
 		canvas.add(scroll);
-	    canvas.add(clearHistoryButton);  
-	    add(canvas);
-	    pack();
-	    
+		canvas.add(clearHistoryButton);  
+		add(canvas);
+		pack();
+
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	}
 	
 	/**
