@@ -31,80 +31,80 @@ public class AddAStudentPage extends JFrame implements ActionListener {
 		add(canvas);
 		
 		setSize(600, 830);
-        setVisible(false);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        grade = 0;
-        
-        inIB = false; notInIB = false;
-        
-        necessaryInfoTextLabel = new MyTextLabel("<html>Note: Fields marked with '*' means<br>that they are necessary to fill out.</html>", SwingConstants.CENTER);
-        necessaryInfoTextLabel.setTextLabel(280, 80, 155, 40, Color.BLACK, Color.ORANGE, new Font("Arial", Font.BOLD, 16));
-        
-        nameTextLabel = new MyTextLabel("(*) Full name:", SwingConstants.CENTER);
-        nameTextLabel.setTextLabel(125, 20, 170, 190, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        nameTextField = new MyTextField();
-        nameTextField.setTextField(250, 30, 170, 210);
-        
-        gradeTextLabel = new MyTextLabel("(*) Grade:", SwingConstants.CENTER);
-        gradeTextLabel.setTextLabel(100, 20, 162, 260, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        gr9Button = new MyButton("Grade 9");
-        gr9Button.setButton(86, 30, 162, 280);
-        gr9Button.addActionListener(this);
-     
-        gr10Button = new MyButton("Grade 10");
-        gr10Button.setButton(86, 30, 248, 280);
-        gr10Button.addActionListener(this);
-        
-        gr11Button = new MyButton("Grade 11");
-        gr11Button.setButton(86, 30, 334, 280);
-        gr11Button.addActionListener(this);
-        
-        gr12Button = new MyButton("Grade 12");
-        gr12Button.setButton(86, 30, 248, 310);
-        gr12Button.addActionListener(this);
-        
-        inIBTextLabel = new MyTextLabel("<html>(*) Is this student currently in<br>the pre-IB or IB program?</html>", SwingConstants.CENTER);
-        inIBTextLabel.setTextLabel(210, 35, 190, 370, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
-        
-        inIB_Button = new MyButton("Yes");
-        inIB_Button.setButton(80, 40, 190, 415);
-        inIB_Button.addActionListener(this);
-        
-        notInIB_Button = new MyButton("No");
-        notInIB_Button.setButton(80, 40, 320, 415);
-        notInIB_Button.addActionListener(this);
+		setVisible(false);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        addStudentButton = new MyButton("Add this student");
-        addStudentButton.setButton(130, 40, 227, 500);
-        addStudentButton.addActionListener(this);
-        
-        backButton = new MyButton("Back");
-        backButton.setButton(160, 50, 210, 735);
-        backButton.addActionListener(this);
-        
-        canvas.add(necessaryInfoTextLabel);
-        
-        canvas.add(nameTextLabel);
-        canvas.add(nameTextField);
-        
-        canvas.add(gradeTextLabel);
-        canvas.add(gr9Button);
-        canvas.add(gr10Button);
-        canvas.add(gr11Button);
-        canvas.add(gr12Button);
-         
-        canvas.add(inIBTextLabel);
-        canvas.add(inIB_Button);
-        canvas.add(notInIB_Button);
-        
-        canvas.add(addStudentButton);
-        
-        canvas.add(backButton);
+		grade = 0;
+
+		inIB = false; notInIB = false;
+
+		necessaryInfoTextLabel = new MyTextLabel("<html>Note: Fields marked with '*' means<br>that they are necessary to fill out.</html>", SwingConstants.CENTER);
+		necessaryInfoTextLabel.setTextLabel(280, 80, 155, 40, Color.BLACK, Color.ORANGE, new Font("Arial", Font.BOLD, 16));
+
+		nameTextLabel = new MyTextLabel("(*) Full name:", SwingConstants.CENTER);
+		nameTextLabel.setTextLabel(125, 20, 170, 190, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		nameTextField = new MyTextField();
+		nameTextField.setTextField(250, 30, 170, 210);
+
+		gradeTextLabel = new MyTextLabel("(*) Grade:", SwingConstants.CENTER);
+		gradeTextLabel.setTextLabel(100, 20, 162, 260, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		gr9Button = new MyButton("Grade 9");
+		gr9Button.setButton(86, 30, 162, 280);
+		gr9Button.addActionListener(this);
+
+		gr10Button = new MyButton("Grade 10");
+		gr10Button.setButton(86, 30, 248, 280);
+		gr10Button.addActionListener(this);
+
+		gr11Button = new MyButton("Grade 11");
+		gr11Button.setButton(86, 30, 334, 280);
+		gr11Button.addActionListener(this);
+
+		gr12Button = new MyButton("Grade 12");
+		gr12Button.setButton(86, 30, 248, 310);
+		gr12Button.addActionListener(this);
+
+		inIBTextLabel = new MyTextLabel("<html>(*) Is this student currently in<br>the pre-IB or IB program?</html>", SwingConstants.CENTER);
+		inIBTextLabel.setTextLabel(210, 35, 190, 370, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
+
+		inIB_Button = new MyButton("Yes");
+		inIB_Button.setButton(80, 40, 190, 415);
+		inIB_Button.addActionListener(this);
+
+		notInIB_Button = new MyButton("No");
+		notInIB_Button.setButton(80, 40, 320, 415);
+		notInIB_Button.addActionListener(this);
+
+		addStudentButton = new MyButton("Add this student");
+		addStudentButton.setButton(130, 40, 227, 500);
+		addStudentButton.addActionListener(this);
+
+		backButton = new MyButton("Back");
+		backButton.setButton(160, 50, 210, 735);
+		backButton.addActionListener(this);
+
+		canvas.add(necessaryInfoTextLabel);
+
+		canvas.add(nameTextLabel);
+		canvas.add(nameTextField);
+
+		canvas.add(gradeTextLabel);
+		canvas.add(gr9Button);
+		canvas.add(gr10Button);
+		canvas.add(gr11Button);
+		canvas.add(gr12Button);
+
+		canvas.add(inIBTextLabel);
+		canvas.add(inIB_Button);
+		canvas.add(notInIB_Button);
+
+		canvas.add(addStudentButton);
+
+		canvas.add(backButton);
 	}
 	
 	/**
