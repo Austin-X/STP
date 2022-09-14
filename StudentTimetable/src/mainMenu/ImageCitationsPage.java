@@ -26,16 +26,16 @@ public class ImageCitationsPage extends JFrame implements ActionListener {
 		add(canvas);
         
 		setSize(1000, 600);
-        setVisible(false);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
+		setVisible(false);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
 		backButton = new MyButton("Back");
-        backButton.setButton(100, 40, 0, 560);
-        backButton.addActionListener(this);
-        
-        add(backButton, BorderLayout.WEST);
+		backButton.setButton(100, 40, 0, 560);
+		backButton.addActionListener(this);
+
+		add(backButton, BorderLayout.WEST);
 	}
 	
 	/**
