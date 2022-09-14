@@ -1,5 +1,5 @@
 # Student Timetable Program (STP)
-A program used to generate and schedule timetables for high school students at Victoria Park High School
+A program used to help high school students at VPCI schedule their courses and generate their timetables.
 
 # Installation
 1. Download this project as a .zip file and extract the contents of that .zip file.
