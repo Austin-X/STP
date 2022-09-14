@@ -13,8 +13,10 @@ A program used to generate timetables for high school students at Victoria Park 
 
 # Javadoc
 Make sure that you know the location where you extracted the contents of this .zip project.
-To view the Javadoc for this program, go to the "Documentations" folder, then go to the "Javadoc" folder, then open "index.html"
+
+From that location, to view the Javadoc for this program, go to the "Documentations" folder, then go to the "Javadoc" folder, then open "index.html"
 
 # Source Code
 Make sure that you know the location where you extracted the contents of this .zip project.
-To view the source code for this project, go to the "StudentTimetable" directory and then go into the "src" directory
+
+From that location, to view the source code for this project, go to the "StudentTimetable" directory and then go into the "src" directory
