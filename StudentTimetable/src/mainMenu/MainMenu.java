@@ -33,19 +33,19 @@ public class MainMenu extends JFrame implements ActionListener {
 		add(canvas);
 		
 		setSize(1200, 820);
-        setVisible(false);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        students = new LinkedListStudent();
-        teachers = new LinkedListTeacher();
-    
-        /*
-         *  Reloading the past information uploaded by the user into the database. 
-         *  This information is saved inside the "StudentsInfo.txt", "TeachersInfo.txt" and "HistoryInfo.txt" RandomAccessFiles.
-         *  This information consists of the student's name, completed courses, current courses, teacher's name, history of actions, etc.
-         */
+		setVisible(false);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		students = new LinkedListStudent();
+		teachers = new LinkedListTeacher();
+
+		/*
+		*  Reloading the past information uploaded by the user into the database. 
+		*  This information is saved inside the "StudentsInfo.txt", "TeachersInfo.txt" and "HistoryInfo.txt" RandomAccessFiles.
+		*  This information consists of the student's name, completed courses, current courses, teacher's name, history of actions, etc.
+		*/
 		try {	
 			// Reloading the past information uploaded by the user about the students in the database
 			RandomAccessFile studentsInfo = new RandomAccessFile("StudentsInfo.txt", "rw");
@@ -54,9 +54,9 @@ public class MainMenu extends JFrame implements ActionListener {
 			while (true) {
 				line = studentsInfo.readLine();
 				if (line == null) break;
-				
+
 				String[] parts = line.split("_");
-				
+
 				if (parts[0].equals("Add")) {
 					Student temp = new Student();
 					temp.setName(parts[1]);
@@ -65,16 +65,16 @@ public class MainMenu extends JFrame implements ActionListener {
 					if (parts[4].equals("true")) temp.setIB(true);
 					else temp.setIB(false);
 					temp.setEmail(parts[5]);
-					
+
 					students.addLast(temp);		
 				} else if (parts[0].equals("Edit")) {
 					Student stu = findStudent(Integer.parseInt(parts[2]));
-					
+
 					LinkedListCourses courses = new LinkedListCourses();
 					for (int i = 3; i < parts.length; i ++) {
 						courses.addLast(new Course(parts[i]));
 					}
-					
+
 					if (parts[1].equals("Completed Courses")) {
 						stu.setCompletedCourses(courses);
 					} else {
@@ -85,14 +85,14 @@ public class MainMenu extends JFrame implements ActionListener {
 					students.remove(stu);
 				} else if (parts[0].equals("Timetable")) {
 					Student stu = findStudent(Integer.parseInt(parts[1]));
-					
+
 					String[] timetable = new String[8];
 					for (int i = 2; i <= 9; i ++) timetable[i - 2] = parts[i];
 					stu.setTimetable(timetable);
 				}
 			}
 			studentsInfo.close();
-			
+
 			// Reloading the past information uploaded by the user about the teachers in the database
 			RandomAccessFile teachersInfo = new RandomAccessFile("TeachersInfo.txt", "rw");
 			teachersInfo.seek(0);
@@ -100,13 +100,13 @@ public class MainMenu extends JFrame implements ActionListener {
 			while (true) {
 				line = teachersInfo.readLine();
 				if (line == null) break;
-				
+
 				String[] parts = line.split("_");
-				
+
 				if (parts[0].equals("Add")) {
 					Teacher temp = new Teacher(parts[1], Integer.parseInt(parts[2]));
 					temp.setEmail(parts[3]);
-					
+
 					teachers.addLast(temp);		
 				} else if (parts[0].equals("Remove")) {
 					Teacher tch = findTeacher(Integer.parseInt(parts[1]));
@@ -114,7 +114,7 @@ public class MainMenu extends JFrame implements ActionListener {
 				}
 			}
 			teachersInfo.close();
-			
+
 			// Reloading the history of events that have occurred in the database
 			RandomAccessFile historyInfo = new RandomAccessFile("HistoryInfo.txt", "rw");
 			historyInfo.seek(0);
@@ -122,7 +122,7 @@ public class MainMenu extends JFrame implements ActionListener {
 			while (true) {
 				line = historyInfo.readLine();
 				if (line == null) break;
-				
+
 				DriverClass.addEventToHistory(line, false);
 			}
 			historyInfo.close();
@@ -131,23 +131,23 @@ public class MainMenu extends JFrame implements ActionListener {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
-        infoLabel = new MyTextLabel("Main Menu", SwingConstants.CENTER);
-        infoLabel.setTextLabel(300, 40, getWidth() / 2 - 150, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        currentStudentsCntLabel = new MyTextLabel("Current Number of Students: " + students.getSize(), SwingConstants.CENTER);
-        currentStudentsCntLabel.setTextLabel(500, 50, getWidth() / 2 - 250, 300, Color.BLUE, null, new Font("Arial", Font.BOLD, 30));
-        currentStudentsCntLabel.setOpaque(false);
-        
-        currentTeachersCntLabel = new MyTextLabel("Current Number of Teachers: " + teachers.getSize(), SwingConstants.CENTER);
-        currentTeachersCntLabel.setTextLabel(500, 50, getWidth() / 2 - 250, 360, Color.BLUE, null, new Font("Arial", Font.BOLD, 30));
-        currentTeachersCntLabel.setOpaque(false);
 
-        teachersNeededLabel = new MyTextLabel("<html>Number of teachers currently needed: " + 0 + "<br>(Note: 1 teacher can support 30 students)</html>", SwingConstants.CENTER);
-        teachersNeededLabel.setTextLabel(500, 60, getWidth() / 2 - 250, 420, Color.RED, Color.YELLOW, new Font("Arial", Font.BOLD, 22));
-        teachersNeededLabel.setOpaque(true);
-        
-        backToLoginScreenButton = new MyButton("Back");
+		infoLabel = new MyTextLabel("Main Menu", SwingConstants.CENTER);
+		infoLabel.setTextLabel(300, 40, getWidth() / 2 - 150, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		currentStudentsCntLabel = new MyTextLabel("Current Number of Students: " + students.getSize(), SwingConstants.CENTER);
+		currentStudentsCntLabel.setTextLabel(500, 50, getWidth() / 2 - 250, 300, Color.BLUE, null, new Font("Arial", Font.BOLD, 30));
+		currentStudentsCntLabel.setOpaque(false);
+
+		currentTeachersCntLabel = new MyTextLabel("Current Number of Teachers: " + teachers.getSize(), SwingConstants.CENTER);
+		currentTeachersCntLabel.setTextLabel(500, 50, getWidth() / 2 - 250, 360, Color.BLUE, null, new Font("Arial", Font.BOLD, 30));
+		currentTeachersCntLabel.setOpaque(false);
+
+		teachersNeededLabel = new MyTextLabel("<html>Number of teachers currently needed: " + 0 + "<br>(Note: 1 teacher can support 30 students)</html>", SwingConstants.CENTER);
+		teachersNeededLabel.setTextLabel(500, 60, getWidth() / 2 - 250, 420, Color.RED, Color.YELLOW, new Font("Arial", Font.BOLD, 22));
+		teachersNeededLabel.setOpaque(true);
+
+		backToLoginScreenButton = new MyButton("Back");
 		backToLoginScreenButton.setButton(150, 50, 0, 735);
 		backToLoginScreenButton.addActionListener(this);
 		
@@ -245,10 +245,10 @@ public class MainMenu extends JFrame implements ActionListener {
 	 */
 	public void updateCnt() { 
 		currentStudentsCntLabel.setText("Current Number of Students: " + students.getSize());
-	    currentTeachersCntLabel.setText("Current Number of Teachers: " + teachers.getSize());
-	    
-	    int teachersNeeded = Math.max((int) Math.ceil(students.getSize() / (double)2) - teachers.getSize(), 0);    
-        teachersNeededLabel.setText("<html>Number of teachers currently needed: " + teachersNeeded + "<br>(Note: 1 teacher can support 30 students)</html>");
+		currentTeachersCntLabel.setText("Current Number of Teachers: " + teachers.getSize());
+
+		int teachersNeeded = Math.max((int) Math.ceil(students.getSize() / (double)2) - teachers.getSize(), 0);    
+		teachersNeededLabel.setText("<html>Number of teachers currently needed: " + teachersNeeded + "<br>(Note: 1 teacher can support 30 students)</html>");
 	}
 	
 	public void paint(Graphics g) {
