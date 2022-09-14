@@ -22,27 +22,27 @@ public class CreateAccount extends JFrame implements ActionListener {
 		add(canvas);
 		
 		setSize(800, 800);
-        setVisible(false);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        createAccountMessageLabel = new MyTextLabel("Create your account here", SwingConstants.CENTER);
-        createAccountMessageLabel.setTextLabel(400, 70, 200, 80, Color.BLACK, Color.GREEN, new Font("Arial", Font.BOLD, 20));
-        
-        usernameLabel = new MyTextLabel("Username:", SwingConstants.CENTER);
-        usernameLabel.setTextLabel(260, 20, 150, 330, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        usernameTextField = new MyTextField();
-        usernameTextField.setTextField(500, 40, 150, 350);
-		
-        passwordLabel = new MyTextLabel("Password:", SwingConstants.CENTER);
-        passwordLabel.setTextLabel(260, 20, 150, 430, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        passwordTextField = new MyTextField();
-        passwordTextField.setTextField(500, 40, 150, 450);
-        
-        backToLoginScreenButton = new MyButton("Back");
+		setVisible(false);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		createAccountMessageLabel = new MyTextLabel("Create your account here", SwingConstants.CENTER);
+		createAccountMessageLabel.setTextLabel(400, 70, 200, 80, Color.BLACK, Color.GREEN, new Font("Arial", Font.BOLD, 20));
+
+		usernameLabel = new MyTextLabel("Username:", SwingConstants.CENTER);
+		usernameLabel.setTextLabel(260, 20, 150, 330, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		usernameTextField = new MyTextField();
+		usernameTextField.setTextField(500, 40, 150, 350);
+
+		passwordLabel = new MyTextLabel("Password:", SwingConstants.CENTER);
+		passwordLabel.setTextLabel(260, 20, 150, 430, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		passwordTextField = new MyTextField();
+		passwordTextField.setTextField(500, 40, 150, 450);
+
+		backToLoginScreenButton = new MyButton("Back");
 		backToLoginScreenButton.setButton(150, 50, 0, 715);
 		backToLoginScreenButton.addActionListener(this);
 
