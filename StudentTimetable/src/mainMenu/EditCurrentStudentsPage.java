@@ -38,161 +38,161 @@ public class EditCurrentStudentsPage extends JFrame implements ActionListener {
 		setLayout(null);
 		setSize(800, 800);
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-	    sorted = false;
-	    
-	    curTimetableShownStudent = new Student();
-	    
-	    studentsList = new LinkedListStudent();
-	    
-	    choiceLabel = new MyTextLabel("Select a student below", SwingConstants.CENTER);
-	    choiceLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
-	    
-	    studentsMenu = new Choice();
-	    studentsMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
-	    
-	    for (int i = 0; i < studentsList.getSize(); i ++) {
-	    	studentsMenu.add(studentsList.get(0, studentsList.getHead(), i).getName());
-	    }
-	    
-	    timetableSemester1Label = new MyTextLabel("Semester 1 timetable", SwingConstants.CENTER);
-	    timetableSemester1Label.setTextLabel(370, 25, getWidth() / 2 - 150, 180, Color.BLACK, null, new Font("Arial", Font.BOLD, 20));
-	    timetableSemester2Label = new MyTextLabel("Semester 2 timetable", SwingConstants.CENTER);
-	    timetableSemester2Label.setTextLabel(370, 25, getWidth() / 2 - 150, 470, Color.BLACK, null, new Font("Arial", Font.BOLD, 20));
-	    
-	    timetableSemester1 = new MyButton[4][4];
-	    timetableSemester2 = new MyButton[4][4];
-	    
-	    int timetable1curX = getWidth() / 2 - 140, timetable1curY = 230;
-	    int timetable2curX = getWidth() / 2 - 140, timetable2curY = 520;
-	    
-	    for (int i = 0; i < 4; i ++) {
-	    	for (int j = 0; j < 4; j ++) {
-	    		timetableSemester1[i][j] = new MyButton("");
-	    		timetableSemester1[i][j].setButton(90, 50, timetable1curX, timetable1curY);
-	    		
-	    		timetable1curX += 90;
-	    		
-	    		timetableSemester2[i][j] = new MyButton("");
-	    		timetableSemester2[i][j].setButton(90, 50, timetable2curX, timetable2curY);
-	    		
-	    		timetable2curX += 90;
-	    	}
-	    	timetable1curX = getWidth() / 2 - 140;
-	    	timetable1curY += 50;
-	    	
-	    	timetable2curX = getWidth() / 2 - 140;
-	    	timetable2curY += 50;
-	    }
-	    
-	    timetableDayLabels = new MyTextLabel[8];
-	    int curX = getWidth() / 2 - 140, curY = 210;
-	    for (int i = 0; i < 8; i ++) {
-	    	timetableDayLabels[i] = new MyTextLabel("Day " + (i + 1), SwingConstants.CENTER);
-	    	timetableDayLabels[i].setTextLabel(90, 20, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
-	    	curX += 90;
-	    }
-	    curX = getWidth() / 2 - 140; curY = 500;
-	    for (int i = 4; i < 8; i ++) {
-	    	timetableDayLabels[i] = new MyTextLabel("Day " + (i - 4 + 1), SwingConstants.CENTER);
-	    	timetableDayLabels[i].setTextLabel(90, 20, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
-	    	curX += 90;
-	    }
-	    
-	    timetableTimePeriods = new MyTextLabel[8];
-	    curX = getWidth() / 2 - 220; curY = 230;
-	    for (int i = 0; i < 4; i ++) {
-	    	if (i == 0) timetableTimePeriods[i] = new MyTextLabel("08:45-10:05", SwingConstants.CENTER);
-	    	else if (i == 1) timetableTimePeriods[i] = new MyTextLabel("10:10-11:25", SwingConstants.CENTER);
-	    	else if (i == 2) timetableTimePeriods[i] = new MyTextLabel("12:25-13:45", SwingConstants.CENTER);
-	    	else timetableTimePeriods[i] = new MyTextLabel("13:50-15:00", SwingConstants.CENTER);
-	    	timetableTimePeriods[i].setTextLabel(80, 50, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
-	    	curY += 50;
-	    }
-	    curX = getWidth() / 2 - 220; curY = 520;
-	    for (int i = 4; i < 8; i ++) {
-	    	if (i - 4 == 0) timetableTimePeriods[i] = new MyTextLabel("08:45-10:05", SwingConstants.CENTER);
-	    	else if (i - 4 == 1) timetableTimePeriods[i] = new MyTextLabel("10:10-11:25", SwingConstants.CENTER);
-	    	else if (i - 4 == 2) timetableTimePeriods[i] = new MyTextLabel("12:25-13:45", SwingConstants.CENTER);
-	    	else timetableTimePeriods[i] = new MyTextLabel("13:50-15:00", SwingConstants.CENTER);
-	    	timetableTimePeriods[i].setTextLabel(80, 50, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
-	    	curY += 50;
-	    }
-	    
-	    backButton = new MyButton("Back");
-	    backButton.setButton(160, 50, 0, 713);
-	    backButton.addActionListener(this);
-	    
-	    sortStudentsAlphabeticallyButton = new MyButton("<html>Sort list of student(s)<br>alphabetically</html>");
-	    sortStudentsAlphabeticallyButton.setButton(190, 40, 90, 65);
-	    sortStudentsAlphabeticallyButton.setBackground(Color.CYAN);
-	    sortStudentsAlphabeticallyButton.addActionListener(this);
-	    
-	    removeThisStudentButton = new MyButton("Remove this student");
-	    removeThisStudentButton.setButton(190, 30, getWidth() / 2 + 120, 70);
-	    removeThisStudentButton.setBackground(Color.RED);
-	    removeThisStudentButton.addActionListener(this);
-	    
-	    editCompletedCoursesButton = new MyButton("<html>Edit this student's<br>completed courses</html>");
-	    editCompletedCoursesButton.setButton(190, 50, 90, 110);
-	    editCompletedCoursesButton.addActionListener(this);
-	    
-	    editCurrentCoursesButton = new MyButton("<html>Edit this student's<br>current courses</html>");
-	    editCurrentCoursesButton.setButton(190, 50, getWidth() / 2 - 95, 110);
-	    editCurrentCoursesButton.addActionListener(this);
-	    
-	    generateTimetableButton = new MyButton("<html>Randomly generate this<br>student's current timetable</html>");
-	    generateTimetableButton.setButton(190, 50, getWidth() / 2 + 120, 110);
-	    generateTimetableButton.addActionListener(this);
-	    
-	    displayTimetableButton = new MyButton("<html>Display this student's<br>current timetable</html>");
-	    displayTimetableButton.setButton(110, 110, 50, 400);
-	    displayTimetableButton.setBackground(Color.GREEN);
-	    displayTimetableButton.addActionListener(this);
+		sorted = false;
 
-	    add(choiceLabel);
-	    
-	    add(studentsMenu);
-	    
-	    add(removeThisStudentButton);
-	    
-	    add(sortStudentsAlphabeticallyButton);
-	    add(editCompletedCoursesButton);
-	    add(editCurrentCoursesButton);
-	    add(generateTimetableButton);
-	    add(displayTimetableButton);
-	   
-	    add(timetableSemester1Label);
-	    add(timetableSemester2Label);
-	    timetableSemester1Label.setVisible(false);
-	    timetableSemester2Label.setVisible(false);
-    	
-	    for (int i = 0; i < 8; i ++) {
-	    	add(timetableDayLabels[i]);
-	    	add(timetableTimePeriods[i]);
-	    	timetableDayLabels[i].setVisible(false);
-	    	timetableTimePeriods[i].setVisible(false);
-	    }
-	    
-	    for (int i = 0; i < 4; i ++) {
-	    	for (int j = 0; j < 4; j ++) {
-	    		add(timetableSemester1[i][j]);
-	    		add(timetableSemester2[i][j]);
-	    		timetableSemester1[i][j].setVisible(false);
-	    		timetableSemester2[i][j].setVisible(false);
-	    	}
-	    }
-	    
-	    removeThisStudentButton.setVisible(false);
-	    
-	    editCompletedCoursesButton.setVisible(false);
-	    editCurrentCoursesButton.setVisible(false);
-	    generateTimetableButton.setVisible(false);
-	    displayTimetableButton.setVisible(false);
+		curTimetableShownStudent = new Student();
 
-	    add(backButton);
+		studentsList = new LinkedListStudent();
+
+		choiceLabel = new MyTextLabel("Select a student below", SwingConstants.CENTER);
+		choiceLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
+
+		studentsMenu = new Choice();
+		studentsMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
+
+		for (int i = 0; i < studentsList.getSize(); i ++) {
+			studentsMenu.add(studentsList.get(0, studentsList.getHead(), i).getName());
+		}
+
+		timetableSemester1Label = new MyTextLabel("Semester 1 timetable", SwingConstants.CENTER);
+		timetableSemester1Label.setTextLabel(370, 25, getWidth() / 2 - 150, 180, Color.BLACK, null, new Font("Arial", Font.BOLD, 20));
+		timetableSemester2Label = new MyTextLabel("Semester 2 timetable", SwingConstants.CENTER);
+		timetableSemester2Label.setTextLabel(370, 25, getWidth() / 2 - 150, 470, Color.BLACK, null, new Font("Arial", Font.BOLD, 20));
+
+		timetableSemester1 = new MyButton[4][4];
+		timetableSemester2 = new MyButton[4][4];
+
+		int timetable1curX = getWidth() / 2 - 140, timetable1curY = 230;
+		int timetable2curX = getWidth() / 2 - 140, timetable2curY = 520;
+
+		for (int i = 0; i < 4; i ++) {
+			for (int j = 0; j < 4; j ++) {
+				timetableSemester1[i][j] = new MyButton("");
+				timetableSemester1[i][j].setButton(90, 50, timetable1curX, timetable1curY);
+
+				timetable1curX += 90;
+
+				timetableSemester2[i][j] = new MyButton("");
+				timetableSemester2[i][j].setButton(90, 50, timetable2curX, timetable2curY);
+
+				timetable2curX += 90;
+			}
+			timetable1curX = getWidth() / 2 - 140;
+			timetable1curY += 50;
+
+			timetable2curX = getWidth() / 2 - 140;
+			timetable2curY += 50;
+		}
+
+		timetableDayLabels = new MyTextLabel[8];
+		int curX = getWidth() / 2 - 140, curY = 210;
+		for (int i = 0; i < 8; i ++) {
+			timetableDayLabels[i] = new MyTextLabel("Day " + (i + 1), SwingConstants.CENTER);
+			timetableDayLabels[i].setTextLabel(90, 20, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
+			curX += 90;
+		}
+		curX = getWidth() / 2 - 140; curY = 500;
+		for (int i = 4; i < 8; i ++) {
+			timetableDayLabels[i] = new MyTextLabel("Day " + (i - 4 + 1), SwingConstants.CENTER);
+			timetableDayLabels[i].setTextLabel(90, 20, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
+			curX += 90;
+		}
+
+		timetableTimePeriods = new MyTextLabel[8];
+		curX = getWidth() / 2 - 220; curY = 230;
+		for (int i = 0; i < 4; i ++) {
+			if (i == 0) timetableTimePeriods[i] = new MyTextLabel("08:45-10:05", SwingConstants.CENTER);
+			else if (i == 1) timetableTimePeriods[i] = new MyTextLabel("10:10-11:25", SwingConstants.CENTER);
+			else if (i == 2) timetableTimePeriods[i] = new MyTextLabel("12:25-13:45", SwingConstants.CENTER);
+			else timetableTimePeriods[i] = new MyTextLabel("13:50-15:00", SwingConstants.CENTER);
+			timetableTimePeriods[i].setTextLabel(80, 50, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
+			curY += 50;
+		}
+		curX = getWidth() / 2 - 220; curY = 520;
+		for (int i = 4; i < 8; i ++) {
+			if (i - 4 == 0) timetableTimePeriods[i] = new MyTextLabel("08:45-10:05", SwingConstants.CENTER);
+			else if (i - 4 == 1) timetableTimePeriods[i] = new MyTextLabel("10:10-11:25", SwingConstants.CENTER);
+			else if (i - 4 == 2) timetableTimePeriods[i] = new MyTextLabel("12:25-13:45", SwingConstants.CENTER);
+			else timetableTimePeriods[i] = new MyTextLabel("13:50-15:00", SwingConstants.CENTER);
+			timetableTimePeriods[i].setTextLabel(80, 50, curX, curY, Color.BLACK, Color.YELLOW, new Font("Arial", Font.PLAIN, 14));
+			curY += 50;
+		}
+
+		backButton = new MyButton("Back");
+		backButton.setButton(160, 50, 0, 713);
+		backButton.addActionListener(this);
+
+		sortStudentsAlphabeticallyButton = new MyButton("<html>Sort list of student(s)<br>alphabetically</html>");
+		sortStudentsAlphabeticallyButton.setButton(190, 40, 90, 65);
+		sortStudentsAlphabeticallyButton.setBackground(Color.CYAN);
+		sortStudentsAlphabeticallyButton.addActionListener(this);
+
+		removeThisStudentButton = new MyButton("Remove this student");
+		removeThisStudentButton.setButton(190, 30, getWidth() / 2 + 120, 70);
+		removeThisStudentButton.setBackground(Color.RED);
+		removeThisStudentButton.addActionListener(this);
+
+		editCompletedCoursesButton = new MyButton("<html>Edit this student's<br>completed courses</html>");
+		editCompletedCoursesButton.setButton(190, 50, 90, 110);
+		editCompletedCoursesButton.addActionListener(this);
+
+		editCurrentCoursesButton = new MyButton("<html>Edit this student's<br>current courses</html>");
+		editCurrentCoursesButton.setButton(190, 50, getWidth() / 2 - 95, 110);
+		editCurrentCoursesButton.addActionListener(this);
+
+		generateTimetableButton = new MyButton("<html>Randomly generate this<br>student's current timetable</html>");
+		generateTimetableButton.setButton(190, 50, getWidth() / 2 + 120, 110);
+		generateTimetableButton.addActionListener(this);
+
+		displayTimetableButton = new MyButton("<html>Display this student's<br>current timetable</html>");
+		displayTimetableButton.setButton(110, 110, 50, 400);
+		displayTimetableButton.setBackground(Color.GREEN);
+		displayTimetableButton.addActionListener(this);
+
+		add(choiceLabel);
+
+		add(studentsMenu);
+
+		add(removeThisStudentButton);
+
+		add(sortStudentsAlphabeticallyButton);
+		add(editCompletedCoursesButton);
+		add(editCurrentCoursesButton);
+		add(generateTimetableButton);
+		add(displayTimetableButton);
+
+		add(timetableSemester1Label);
+		add(timetableSemester2Label);
+		timetableSemester1Label.setVisible(false);
+		timetableSemester2Label.setVisible(false);
+
+		for (int i = 0; i < 8; i ++) {
+		add(timetableDayLabels[i]);
+		add(timetableTimePeriods[i]);
+		timetableDayLabels[i].setVisible(false);
+		timetableTimePeriods[i].setVisible(false);
+		}
+
+		for (int i = 0; i < 4; i ++) {
+			for (int j = 0; j < 4; j ++) {
+				add(timetableSemester1[i][j]);
+				add(timetableSemester2[i][j]);
+				timetableSemester1[i][j].setVisible(false);
+				timetableSemester2[i][j].setVisible(false);
+			}
+		}
+
+		removeThisStudentButton.setVisible(false);
+
+		editCompletedCoursesButton.setVisible(false);
+		editCurrentCoursesButton.setVisible(false);
+		generateTimetableButton.setVisible(false);
+		displayTimetableButton.setVisible(false);
+
+		add(backButton);
 	}
 	
 	/**
@@ -205,61 +205,61 @@ public class EditCurrentStudentsPage extends JFrame implements ActionListener {
 		remove(studentsMenu);
 		
 		studentsMenu = new Choice();
-	    studentsMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
+		studentsMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
 
-	    for (int i = 0; i < studentsList.getSize(); i ++) {
-	    	studentsMenu.add((i + 1) + ". " + studentsList.get(0, studentsList.getHead(), i).getName());
-	    }
-	    
-	    add(studentsMenu);
-	    
-	    if (studentsList.getSize() > 0) {   // List of students is empty, so hide all of the buttons and labels which are responsible for generating a student's timetable
-	    	sortStudentsAlphabeticallyButton.setVisible(true);
-	        removeThisStudentButton.setVisible(true);
-	    	  
-	        timetableSemester1Label.setVisible(true);
-		    timetableSemester2Label.setVisible(true);
-	    	
-		    for (int i = 0; i < 8; i ++) {
-		    	timetableDayLabels[i].setVisible(true);
-		    	timetableTimePeriods[i].setVisible(true);
-		    }
-		    
-		    for (int i = 0; i < 4; i ++) {
-		    	for (int j = 0; j < 4; j ++) {
-		    		timetableSemester1[i][j].setVisible(true);
-		    		timetableSemester2[i][j].setVisible(true);
-		    	}
-		    }
-		    
-		    editCompletedCoursesButton.setVisible(true);
-		    editCurrentCoursesButton.setVisible(true);
-		    generateTimetableButton.setVisible(true);
-		    displayTimetableButton.setVisible(true);
-	    } else {   // List of students is not empty, so display all of the buttons and labels necessary in generating a student's timetable
-	    	sortStudentsAlphabeticallyButton.setVisible(false);
-	    	removeThisStudentButton.setVisible(false);
-	    	
-	    	timetableSemester1Label.setVisible(false);
-		    timetableSemester2Label.setVisible(false);
-	    	
-		    for (int i = 0; i < 8; i ++) {
-		    	timetableDayLabels[i].setVisible(false);
-		    	timetableTimePeriods[i].setVisible(false);
-		    }
-		    
-		    for (int i = 0; i < 4; i ++) {
-		    	for (int j = 0; j < 4; j ++) {
-		    		timetableSemester1[i][j].setVisible(false);
-		    		timetableSemester2[i][j].setVisible(false);
-		    	}
-		    }
-		    
-	    	editCompletedCoursesButton.setVisible(false);
-		    editCurrentCoursesButton.setVisible(false);
-		    generateTimetableButton.setVisible(false);
-		    displayTimetableButton.setVisible(false);
-	    }
+		for (int i = 0; i < studentsList.getSize(); i ++) {
+			studentsMenu.add((i + 1) + ". " + studentsList.get(0, studentsList.getHead(), i).getName());
+		}
+
+		add(studentsMenu);
+
+		if (studentsList.getSize() > 0) {   // List of students is empty, so hide all of the buttons and labels which are responsible for generating a student's timetable
+			sortStudentsAlphabeticallyButton.setVisible(true);
+			removeThisStudentButton.setVisible(true);
+
+			timetableSemester1Label.setVisible(true);
+			timetableSemester2Label.setVisible(true);
+
+			for (int i = 0; i < 8; i ++) {
+			timetableDayLabels[i].setVisible(true);
+			timetableTimePeriods[i].setVisible(true);
+			}
+
+			for (int i = 0; i < 4; i ++) {
+				for (int j = 0; j < 4; j ++) {
+					timetableSemester1[i][j].setVisible(true);
+					timetableSemester2[i][j].setVisible(true);
+				}
+			}
+
+			editCompletedCoursesButton.setVisible(true);
+			editCurrentCoursesButton.setVisible(true);
+			generateTimetableButton.setVisible(true);
+			displayTimetableButton.setVisible(true);
+		} else {   // List of students is not empty, so display all of the buttons and labels necessary in generating a student's timetable
+			sortStudentsAlphabeticallyButton.setVisible(false);
+			removeThisStudentButton.setVisible(false);
+
+			timetableSemester1Label.setVisible(false);
+			    timetableSemester2Label.setVisible(false);
+
+			    for (int i = 0; i < 8; i ++) {
+				timetableDayLabels[i].setVisible(false);
+				timetableTimePeriods[i].setVisible(false);
+			    }
+
+			    for (int i = 0; i < 4; i ++) {
+				for (int j = 0; j < 4; j ++) {
+					timetableSemester1[i][j].setVisible(false);
+					timetableSemester2[i][j].setVisible(false);
+				}
+			    }
+
+			editCompletedCoursesButton.setVisible(false);
+			editCurrentCoursesButton.setVisible(false);
+			generateTimetableButton.setVisible(false);
+			displayTimetableButton.setVisible(false);
+		}
 	}
 
 	/**
