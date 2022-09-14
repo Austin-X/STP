@@ -31,64 +31,64 @@ public class ContactInformationPage extends JFrame implements ActionListener {
 		setLayout(null);
 		setSize(800, 800);
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	    
-	    studentsList = new LinkedListStudent();
-	    
-	    infoLabel = new MyTextLabel("Contact Information Page", SwingConstants.CENTER);
-	    infoLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-	    studentsListLabel = new MyTextLabel("Students", SwingConstants.CENTER);
-	    studentsListLabel.setTextLabel(200, 60, 100, 75, Color.BLACK, null, new Font("Arial", Font.BOLD, 24));
-	    
-	    studentsMenu = new Choice();
-	    studentsMenu.setBounds(100, 135, 200, 40);
-	    
-	    viewStudentInfoButton = new MyButton("View this student's info");
-	    viewStudentInfoButton.setButton(200, 40, 100, 160);
-	    viewStudentInfoButton.addActionListener(this);
-	    
-	    teachersListLabel = new MyTextLabel("Teachers", SwingConstants.CENTER);
-	    teachersListLabel.setTextLabel(200, 60, 500, 75, Color.BLACK, null, new Font("Arial", Font.BOLD, 24));
-	    
-	    teachersMenu = new Choice();
-	    teachersMenu.setBounds(500, 135, 200, 40);
-	    
-	    viewTeacherInfoButton = new MyButton("View this teacher's info");
-	    viewTeacherInfoButton.setButton(200, 40, 500, 160);
-	    viewTeacherInfoButton.addActionListener(this);
-	    
-	    studentNameLabel = new MyTextLabel("Name", SwingConstants.CENTER);
-	    studentNameLabel.setTextLabel(200, 20, 100, 220, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
-	    
-	    studentNameLabelAns = new MyTextLabel("", SwingConstants.CENTER);
-	    studentNameLabelAns.setTextLabel(200, 20, 100, 240, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-	    
-	    studentIDLabel = new MyTextLabel("ID", SwingConstants.CENTER);
-	    studentIDLabel.setTextLabel(200, 20, 100, 300, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
-	    
-	    studentIDLabelAns = new MyTextLabel("", SwingConstants.CENTER);
-	    studentIDLabelAns.setTextLabel(200, 20, 100, 320, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-	    
-	    studentGradeLabel = new MyTextLabel("Grade", SwingConstants.CENTER);
-	    studentGradeLabel.setTextLabel(200, 20, 100, 380, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
-	    
-	    studentGradeLabelAns = new MyTextLabel("", SwingConstants.CENTER);
-	    studentGradeLabelAns.setTextLabel(200, 20, 100, 400, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-	    
-	    studentIsInIBLabel = new MyTextLabel("In pre-IB or IB?", SwingConstants.CENTER);
-	    studentIsInIBLabel.setTextLabel(200, 20, 100, 460, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
-	    
-	    studentIsInIBLabelAns = new MyTextLabel("", SwingConstants.CENTER);
-	    studentIsInIBLabelAns.setTextLabel(200, 20, 100, 480, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-	    
-	    studentEmailLabel = new MyTextLabel("Email", SwingConstants.CENTER);
-	    studentEmailLabel.setTextLabel(200, 20, 100, 540, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
-	    
-	    studentEmailLabelAns = new MyTextLabel("", SwingConstants.CENTER);
-	    studentEmailLabelAns.setTextLabel(300, 20, 50, 560, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-	    
+		studentsList = new LinkedListStudent();
+
+		infoLabel = new MyTextLabel("Contact Information Page", SwingConstants.CENTER);
+		infoLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
+
+		studentsListLabel = new MyTextLabel("Students", SwingConstants.CENTER);
+		studentsListLabel.setTextLabel(200, 60, 100, 75, Color.BLACK, null, new Font("Arial", Font.BOLD, 24));
+
+		studentsMenu = new Choice();
+		studentsMenu.setBounds(100, 135, 200, 40);
+
+		viewStudentInfoButton = new MyButton("View this student's info");
+		viewStudentInfoButton.setButton(200, 40, 100, 160);
+		viewStudentInfoButton.addActionListener(this);
+
+		teachersListLabel = new MyTextLabel("Teachers", SwingConstants.CENTER);
+		teachersListLabel.setTextLabel(200, 60, 500, 75, Color.BLACK, null, new Font("Arial", Font.BOLD, 24));
+
+		teachersMenu = new Choice();
+		teachersMenu.setBounds(500, 135, 200, 40);
+
+		viewTeacherInfoButton = new MyButton("View this teacher's info");
+		viewTeacherInfoButton.setButton(200, 40, 500, 160);
+		viewTeacherInfoButton.addActionListener(this);
+
+		studentNameLabel = new MyTextLabel("Name", SwingConstants.CENTER);
+		studentNameLabel.setTextLabel(200, 20, 100, 220, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
+
+		studentNameLabelAns = new MyTextLabel("", SwingConstants.CENTER);
+		studentNameLabelAns.setTextLabel(200, 20, 100, 240, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
+
+		studentIDLabel = new MyTextLabel("ID", SwingConstants.CENTER);
+		studentIDLabel.setTextLabel(200, 20, 100, 300, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
+
+		studentIDLabelAns = new MyTextLabel("", SwingConstants.CENTER);
+		studentIDLabelAns.setTextLabel(200, 20, 100, 320, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
+
+		studentGradeLabel = new MyTextLabel("Grade", SwingConstants.CENTER);
+		studentGradeLabel.setTextLabel(200, 20, 100, 380, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
+
+		studentGradeLabelAns = new MyTextLabel("", SwingConstants.CENTER);
+		studentGradeLabelAns.setTextLabel(200, 20, 100, 400, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
+
+		studentIsInIBLabel = new MyTextLabel("In pre-IB or IB?", SwingConstants.CENTER);
+		studentIsInIBLabel.setTextLabel(200, 20, 100, 460, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
+
+		studentIsInIBLabelAns = new MyTextLabel("", SwingConstants.CENTER);
+		studentIsInIBLabelAns.setTextLabel(200, 20, 100, 480, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
+
+		studentEmailLabel = new MyTextLabel("Email", SwingConstants.CENTER);
+		studentEmailLabel.setTextLabel(200, 20, 100, 540, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
+
+		studentEmailLabelAns = new MyTextLabel("", SwingConstants.CENTER);
+		studentEmailLabelAns.setTextLabel(300, 20, 50, 560, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
+
 		teacherNameLabel = new MyTextLabel("Name", SwingConstants.CENTER);
 		teacherNameLabel.setTextLabel(200, 20, 500, 220, Color.BLACK, null, new Font("Arial", Font.BOLD, 18));
 		
@@ -106,42 +106,42 @@ public class ContactInformationPage extends JFrame implements ActionListener {
 		    
 		teacherEmailLabelAns = new MyTextLabel("", SwingConstants.CENTER);
 		teacherEmailLabelAns.setTextLabel(300, 20, 450, 400, Color.BLACK, null, new Font("Arial", Font.PLAIN, 16));
-		
-	    backButton = new MyButton("Back");
-	    backButton.setButton(160, 50, 0, 713);
-	    backButton.addActionListener(this);
-	    
-	    add(infoLabel);
-	    
-	    add(studentsListLabel);
-	    add(studentsMenu);
-	    add(viewStudentInfoButton);
-	    
-	    add(teachersListLabel);
-	    add(teachersMenu);
-	    add(viewTeacherInfoButton);
-	    
-	    add(studentNameLabel);
-	    add(studentNameLabelAns);
-	    add(studentIDLabel);
-	    add(studentIDLabelAns);
-	    add(studentGradeLabel);
-	    add(studentGradeLabelAns);
-	    add(studentIsInIBLabel);
-	    add(studentIsInIBLabelAns);
-	    add(studentEmailLabel);
-	    add(studentEmailLabelAns);
-	    
-	    add(teacherNameLabel);
-	    add(teacherNameLabelAns);
-	    add(teacherIDLabel);
-	    add(teacherIDLabelAns);
-	    add(teacherEmailLabel);
-	    add(teacherEmailLabelAns);
-	    
-	    hideLabels();
-	    
-	    add(backButton);
+
+		backButton = new MyButton("Back");
+		backButton.setButton(160, 50, 0, 713);
+		backButton.addActionListener(this);
+
+		add(infoLabel);
+
+		add(studentsListLabel);
+		add(studentsMenu);
+		add(viewStudentInfoButton);
+
+		add(teachersListLabel);
+		add(teachersMenu);
+		add(viewTeacherInfoButton);
+
+		add(studentNameLabel);
+		add(studentNameLabelAns);
+		add(studentIDLabel);
+		add(studentIDLabelAns);
+		add(studentGradeLabel);
+		add(studentGradeLabelAns);
+		add(studentIsInIBLabel);
+		add(studentIsInIBLabelAns);
+		add(studentEmailLabel);
+		add(studentEmailLabelAns);
+
+		add(teacherNameLabel);
+		add(teacherNameLabelAns);
+		add(teacherIDLabel);
+		add(teacherIDLabelAns);
+		add(teacherEmailLabel);
+		add(teacherEmailLabelAns);
+
+		hideLabels();
+
+		add(backButton);
 	}
 	
 	/**
@@ -149,38 +149,38 @@ public class ContactInformationPage extends JFrame implements ActionListener {
 	 */
 	public void hideLabels() {
 		studentNameLabel.setVisible(false);
-	    studentNameLabelAns.setVisible(false);
-	    studentIDLabel.setVisible(false);
-	    studentIDLabelAns.setVisible(false);
-	    studentGradeLabel.setVisible(false);
-	    studentGradeLabelAns.setVisible(false);
-	    studentIsInIBLabel.setVisible(false);
-	    studentIsInIBLabelAns.setVisible(false);
-	    studentEmailLabel.setVisible(false);
-	    studentEmailLabelAns.setVisible(false);
-	    
-	    teacherNameLabel.setVisible(false);
-	    teacherNameLabelAns.setVisible(false);
-	    teacherIDLabel.setVisible(false);
-	    teacherIDLabelAns.setVisible(false);
-	    teacherEmailLabel.setVisible(false);
-	    teacherEmailLabelAns.setVisible(false);
+		studentNameLabelAns.setVisible(false);
+		studentIDLabel.setVisible(false);
+		studentIDLabelAns.setVisible(false);
+		studentGradeLabel.setVisible(false);
+		studentGradeLabelAns.setVisible(false);
+		studentIsInIBLabel.setVisible(false);
+		studentIsInIBLabelAns.setVisible(false);
+		studentEmailLabel.setVisible(false);
+		studentEmailLabelAns.setVisible(false);
+
+		teacherNameLabel.setVisible(false);
+		teacherNameLabelAns.setVisible(false);
+		teacherIDLabel.setVisible(false);
+		teacherIDLabelAns.setVisible(false);
+		teacherEmailLabel.setVisible(false);
+		teacherEmailLabelAns.setVisible(false);
 	}
 	
 	/**
 	 * Show all labels responsible for displaying information about a Student
 	 */
 	public void showStudentLabels() {
-	    studentNameLabel.setVisible(true);
-	    studentNameLabelAns.setVisible(true);
-	    studentIDLabel.setVisible(true);
-	    studentIDLabelAns.setVisible(true);
-	    studentGradeLabel.setVisible(true);
-	    studentGradeLabelAns.setVisible(true);
-	    studentIsInIBLabel.setVisible(true);
-	    studentIsInIBLabelAns.setVisible(true);
-	    studentEmailLabel.setVisible(true);
-	    studentEmailLabelAns.setVisible(true);
+		studentNameLabel.setVisible(true);
+		studentNameLabelAns.setVisible(true);
+		studentIDLabel.setVisible(true);
+		studentIDLabelAns.setVisible(true);
+		studentGradeLabel.setVisible(true);
+		studentGradeLabelAns.setVisible(true);
+		studentIsInIBLabel.setVisible(true);
+		studentIsInIBLabelAns.setVisible(true);
+		studentEmailLabel.setVisible(true);
+		studentEmailLabelAns.setVisible(true);
 	}
 	
 	/**
@@ -192,7 +192,7 @@ public class ContactInformationPage extends JFrame implements ActionListener {
 		teacherIDLabel.setVisible(true);
 		teacherIDLabelAns.setVisible(true);
 		teacherEmailLabel.setVisible(true);
-	    teacherEmailLabelAns.setVisible(true);
+		teacherEmailLabelAns.setVisible(true);
 	}
 	
 	/**
@@ -205,10 +205,10 @@ public class ContactInformationPage extends JFrame implements ActionListener {
 		remove(teachersMenu);
 
 		studentsMenu = new Choice();
-	    studentsMenu.setBounds(100, 135, 200, 40);
+		studentsMenu.setBounds(100, 135, 200, 40);
 	    
-	    teachersMenu = new Choice();
-	    teachersMenu.setBounds(500, 135, 200, 40);
+		teachersMenu = new Choice();
+		teachersMenu.setBounds(500, 135, 200, 40);
 	    
 		studentsList = sList;
 		teachersList = tList;
