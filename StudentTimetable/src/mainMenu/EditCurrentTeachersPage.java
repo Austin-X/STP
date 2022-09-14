@@ -31,47 +31,47 @@ public class EditCurrentTeachersPage extends JFrame implements ActionListener {
 		setLayout(null);
 		setSize(800, 800);
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-	    sorted = false;
-	    	
-	    teachersList = new LinkedListTeacher();
-	    
-	    choiceLabel = new MyTextLabel("Select a teacher below", SwingConstants.CENTER);
-	    choiceLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
-	    
-	    teachersMenu = new Choice();
-	    teachersMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
-	    
-	    for (int i = 0; i < teachersList.getSize(); i ++) {
-	    	teachersMenu.add(teachersList.get(0, teachersList.getHead(), i).getName());
-	    }
-	    
-	    backButton = new MyButton("Back");
-	    backButton.setButton(160, 50, 0, 713);
-	    backButton.addActionListener(this);
-	    
-	    sortTeachersAlphabeticallyButton = new MyButton("<html>Sort list of teacher(s)<br>alphabetically</html>");
-	    sortTeachersAlphabeticallyButton.setButton(190, 40, 90, 65);
-	    sortTeachersAlphabeticallyButton.setBackground(Color.CYAN);
-	    sortTeachersAlphabeticallyButton.addActionListener(this);
-	    
-	    removeThisTeacherButton = new MyButton("Remove this teacher");
-	    removeThisTeacherButton.setButton(190, 30, getWidth() / 2 + 120, 70);
-	    removeThisTeacherButton.setBackground(Color.RED);
-	    removeThisTeacherButton.addActionListener(this);
+		sorted = false;
 
-	    add(choiceLabel);
-	    add(teachersMenu);
-	    
-	    add(sortTeachersAlphabeticallyButton);
-	    add(removeThisTeacherButton);	 
-	    
-	    add(backButton);
-	    
-	    sortTeachersAlphabeticallyButton.setVisible(false);
-	    removeThisTeacherButton.setVisible(false);
+		teachersList = new LinkedListTeacher();
+
+		choiceLabel = new MyTextLabel("Select a teacher below", SwingConstants.CENTER);
+		choiceLabel.setTextLabel(400, 40, getWidth() / 2 - 200, 20, Color.BLACK, null, new Font("Arial", Font.BOLD, 30));
+
+		teachersMenu = new Choice();
+		teachersMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
+
+		for (int i = 0; i < teachersList.getSize(); i ++) {
+			teachersMenu.add(teachersList.get(0, teachersList.getHead(), i).getName());
+		}
+
+		backButton = new MyButton("Back");
+		backButton.setButton(160, 50, 0, 713);
+		backButton.addActionListener(this);
+
+		sortTeachersAlphabeticallyButton = new MyButton("<html>Sort list of teacher(s)<br>alphabetically</html>");
+		sortTeachersAlphabeticallyButton.setButton(190, 40, 90, 65);
+		sortTeachersAlphabeticallyButton.setBackground(Color.CYAN);
+		sortTeachersAlphabeticallyButton.addActionListener(this);
+
+		removeThisTeacherButton = new MyButton("Remove this teacher");
+		removeThisTeacherButton.setButton(190, 30, getWidth() / 2 + 120, 70);
+		removeThisTeacherButton.setBackground(Color.RED);
+		removeThisTeacherButton.addActionListener(this);
+
+		add(choiceLabel);
+		add(teachersMenu);
+
+		add(sortTeachersAlphabeticallyButton);
+		add(removeThisTeacherButton);	 
+
+		add(backButton);
+
+		sortTeachersAlphabeticallyButton.setVisible(false);
+		removeThisTeacherButton.setVisible(false);
 	}
 	
 	/**
@@ -84,21 +84,21 @@ public class EditCurrentTeachersPage extends JFrame implements ActionListener {
 		remove(teachersMenu);
 		
 		teachersMenu = new Choice();
-	    teachersMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
+		teachersMenu.setBounds(getWidth() / 2 - 100, 75, 200, 40);
 
-	    for (int i = 0; i < teachersList.getSize(); i ++) {
-	    	teachersMenu.add((i + 1) + ". " + teachersList.get(0, teachersList.getHead(), i).getName());
-	    }
-	    
-	    add(teachersMenu);
-	    
-	    if (teachersList.getSize() > 0) {   // List of teachers is not empty, so show the "Sort alphabetically" and "Remove this teacher" button
-	    	sortTeachersAlphabeticallyButton.setVisible(true);
-	    	removeThisTeacherButton.setVisible(true);
-	    } else {   // List of teachers is empty, so hide the "Sort alphabetically" and "Remove this teacher" button
-	    	sortTeachersAlphabeticallyButton.setVisible(false);
-	    	removeThisTeacherButton.setVisible(false);
-	    }
+		for (int i = 0; i < teachersList.getSize(); i ++) {
+			teachersMenu.add((i + 1) + ". " + teachersList.get(0, teachersList.getHead(), i).getName());
+		}
+
+		add(teachersMenu);
+
+		if (teachersList.getSize() > 0) {   // List of teachers is not empty, so show the "Sort alphabetically" and "Remove this teacher" button
+			sortTeachersAlphabeticallyButton.setVisible(true);
+			removeThisTeacherButton.setVisible(true);
+		} else {   // List of teachers is empty, so hide the "Sort alphabetically" and "Remove this teacher" button
+			sortTeachersAlphabeticallyButton.setVisible(false);
+			removeThisTeacherButton.setVisible(false);
+		}
 	}
 
 	/**
