@@ -1,11 +1,9 @@
 # Student Timetable Program
 A program used to generate timetables for high school students at Victoria Park High School
 
-
 # Installation
-1. Download this project as a .zip file
-2. Extract the contents of that .zip file
-3. Go to the "Projects" directory and open the StudentTimetable.jar file
+1. Download this project as a .zip file and extract the contents of that .zip file.
+3. From the extract contents, go to the "Projects" directory and open the StudentTimetable.jar file
 
 # Preview
 ![image](https://user-images.githubusercontent.com/32133198/189811549-cb016020-6578-4d01-a6e2-9179ab5b8bb2.png)
