@@ -15,8 +15,8 @@ public class StudentCoursesPage extends JFrame implements ActionListener, MouseL
 	
 	// All of the courses in our school stored in a 29 x 7 array called "courses" of type "String"
 	private final String[][] courses = 
-    {{"", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "Grade 12", "Grade 12"},
-    {"English", "<html>ENG1D1 - Grade 9 English<br>Prerequisite(s): none</html>", "<html>ENG2D1 - Grade 10 English<br>Prerequisite(s): ENG1D1 or ENG1D7</html>", "<html>ENG3U1 - Grade 11 English<br>Prerequisite(s): ENG2D1 or ENG2D7</html>", "<html>ENG4U1 - Grade 12 English<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", "<html>ETS4U1 - Grade 12 Film Studies<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", ""},
+	{{"", "Grade 9", "Grade 10", "Grade 11", "Grade 12", "Grade 12", "Grade 12"},
+	{"English", "<html>ENG1D1 - Grade 9 English<br>Prerequisite(s): none</html>", "<html>ENG2D1 - Grade 10 English<br>Prerequisite(s): ENG1D1 or ENG1D7</html>", "<html>ENG3U1 - Grade 11 English<br>Prerequisite(s): ENG2D1 or ENG2D7</html>", "<html>ENG4U1 - Grade 12 English<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", "<html>ETS4U1 - Grade 12 Film Studies<br>Prerequisite(s): ENG3U1 or ENG3U7</html>", ""},
 	{"Math", "<html>MTH1W1 - Grade 9 Mathematics<br>Prerequisite(s): none</html>", "<html>MPM2D1 - Grade 10 Principles of Mathematics<br>Prerequisite(s): MTH1W1 or MPM1D7</html>", "<html>MCR3U1 - Grade 11 Functions<br>Prerequisite(s): MPM2D1 or MPM2D7</html>", "<html>MHF4U1 - Grade 11 Advanced Functions<br>Prerequisite(s): MCR3U1 or MCR3U7</html>", "<html>MCV4U1 - Grade 12 Calculus and Vectors<br>Prerequisite(s): MHF4U1 or MHF4U7</html>", ""},
 	{"Science", "<html>SNC1D1 - Grade 9 Science<br>Prerequisite(s): none</html>", "<html>SNC2D1 - Grade 10 Science<br>Prerequisite(s): SNC1D1 or SNC1D7</html>", "", "", "", ""},
 	{"Computer Studies", "", "<html>ICS2O1 - Grade 10 Introduction to Computer Studies<br>Prerequisite(s): none</html>", "<html>ICS3U1 - Grade 11 Introduction to Computer Science<br>Prerequisite(s): none</html>", "<html>ICS4U1 - Grade 12 Computer Science<br>Prerequisite(s): ICS3U1 or ICS3U7</html>", "", ""},
@@ -68,35 +68,35 @@ public class StudentCoursesPage extends JFrame implements ActionListener, MouseL
 		
 		setSize(1100, 800);
 		setVisible(false);
-	    setLocationRelativeTo(null);
-	    setResizable(false);
-	    setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	    
-	    stu = s;
-	    
-	    canvas = new JPanel();
-	    canvas.setLayout(new GridLayout(0, 7));
-	    
-	    buttonArr = new Button[courses.length][courses[0].length];
-	    completedCourses = new boolean[courses.length][courses[0].length];
-	    currentCourses = new boolean[courses.length][courses[0].length];
-	    possibleCourses = new boolean[courses.length][courses[0].length];
-	       
-	    userHasClickedCompletedCourses = false;
-	    
-	    completedCoursesList = new LinkedListCourses();
-	    currentCoursesList = new LinkedListCourses();
-		
-	    infoLabel = new MyTextLabel("<html>Orange button(s) represent the student's completed course(s). Green button(s) represent the student's current course(s).<br>Red button(s) represent the course(s) that the student cannot select because they do not have the prerequisites for it.<br>Left click on a button to select or deselect a course. Right click on a button to view its course description and prerequisites.</html>", SwingConstants.CENTER);
-	    infoLabel.setTextLabel(400, 40, 0, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-	    finishButton = new MyButton("Finish");
-	    finishButton.addActionListener(this);
-	    
-	    add(canvas);
+		stu = s;
 
-	    add(infoLabel, BorderLayout.NORTH);
-	    add(finishButton, BorderLayout.EAST);
+		canvas = new JPanel();
+		canvas.setLayout(new GridLayout(0, 7));
+
+		buttonArr = new Button[courses.length][courses[0].length];
+		completedCourses = new boolean[courses.length][courses[0].length];
+		currentCourses = new boolean[courses.length][courses[0].length];
+		possibleCourses = new boolean[courses.length][courses[0].length];
+
+		userHasClickedCompletedCourses = false;
+
+		completedCoursesList = new LinkedListCourses();
+		currentCoursesList = new LinkedListCourses();
+
+		infoLabel = new MyTextLabel("<html>Orange button(s) represent the student's completed course(s). Green button(s) represent the student's current course(s).<br>Red button(s) represent the course(s) that the student cannot select because they do not have the prerequisites for it.<br>Left click on a button to select or deselect a course. Right click on a button to view its course description and prerequisites.</html>", SwingConstants.CENTER);
+		infoLabel.setTextLabel(400, 40, 0, 0, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 14));
+
+		finishButton = new MyButton("Finish");
+		finishButton.addActionListener(this);
+
+		add(canvas);
+
+		add(infoLabel, BorderLayout.NORTH);
+		add(finishButton, BorderLayout.EAST);
 	}
 		
 	public void paint(Graphics g) {
@@ -258,15 +258,15 @@ public class StudentCoursesPage extends JFrame implements ActionListener, MouseL
 				
 		// Displaying the top row of the buttons
 		buttonArr[0][0] = new Button(courses[0][0]);
-	    canvas.add(buttonArr[0][0]);
-	    for (int i = 1; i < courses[0].length; i ++) {
-	    	buttonArr[0][i] = new Button(courses[0][i]);
-	    	buttonArr[0][i].setBackground(Color.CYAN);
-	    	canvas.add(buttonArr[0][i]);
-	    }
+		canvas.add(buttonArr[0][0]);
+		for (int i = 1; i < courses[0].length; i ++) {
+			buttonArr[0][i] = new Button(courses[0][i]);
+			buttonArr[0][i].setBackground(Color.CYAN);
+			canvas.add(buttonArr[0][i]);
+		}
 
 		// Displaying the colours of the buttons based on the student's course selection
-    	for (int i = 1; i < courses.length; i ++) {
+		for (int i = 1; i < courses.length; i ++) {
 			for (int j = 0; j < courses[0].length; j ++) {	
 				if (courses[i][j].length() == 0) {
 					buttonArr[i][j] = new Button("");
@@ -282,7 +282,7 @@ public class StudentCoursesPage extends JFrame implements ActionListener, MouseL
 						if (userHasClickedCompletedCourses || stu.getGrade() != 12) buttonArr[i][j].setBackground(Color.RED);
 					}
 					else buttonArr[i][j] = new Button(courses[i][j].substring(6, 12));
-					
+
 					if (completedCourses[i][j]) buttonArr[i][j].setBackground(Color.ORANGE);
 					else if (currentCourses[i][j]) buttonArr[i][j].setBackground(Color.GREEN);
 					else if (!userHasClickedCompletedCourses) {
@@ -294,7 +294,7 @@ public class StudentCoursesPage extends JFrame implements ActionListener, MouseL
 				}
 				canvas.add(buttonArr[i][j]);
 			}
-	    }
+		}
 		add(canvas);
 	}
 	
