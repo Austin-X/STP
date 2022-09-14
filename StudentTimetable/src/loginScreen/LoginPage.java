@@ -49,25 +49,25 @@ public class LoginPage extends JFrame implements ActionListener {
 		}
 		
 		setSize(1200, 820);
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        
-        welcomeMessageLabel = new MyTextLabel("Welcome to the High School Student Timetable", SwingConstants.CENTER);
-        welcomeMessageLabel.setTextLabel(800, 150, 200, 50, Color.BLACK, Color.GREEN, new Font("Arial", Font.BOLD, 35));
-        
-        usernameLabel = new MyTextLabel("Please enter your username:", SwingConstants.CENTER);
-        usernameLabel.setTextLabel(260, 20, 450, 330, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        usernameTextField = new MyTextField();
-        usernameTextField.setTextField(500, 40, 450, 350);
-		
-        passwordLabel = new MyTextLabel("Please enter your password:", SwingConstants.CENTER);
-        passwordLabel.setTextLabel(260, 20, 450, 430, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
-        
-        passwordTextField = new MyTextField();
-        passwordTextField.setTextField(500, 40, 450, 450);
+		setVisible(true);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+		welcomeMessageLabel = new MyTextLabel("Welcome to the High School Student Timetable", SwingConstants.CENTER);
+		welcomeMessageLabel.setTextLabel(800, 150, 200, 50, Color.BLACK, Color.GREEN, new Font("Arial", Font.BOLD, 35));
+
+		usernameLabel = new MyTextLabel("Please enter your username:", SwingConstants.CENTER);
+		usernameLabel.setTextLabel(260, 20, 450, 330, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		usernameTextField = new MyTextField();
+		usernameTextField.setTextField(500, 40, 450, 350);
+
+		passwordLabel = new MyTextLabel("Please enter your password:", SwingConstants.CENTER);
+		passwordLabel.setTextLabel(260, 20, 450, 430, Color.BLACK, Color.YELLOW, new Font("Arial", Font.BOLD, 18));
+
+		passwordTextField = new MyTextField();
+		passwordTextField.setTextField(500, 40, 450, 450);
 		
 		createAccountButton = new MyButton("Create an account");
 		createAccountButton.setButton(150, 50, 450, 600);
