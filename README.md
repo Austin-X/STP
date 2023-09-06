@@ -3,7 +3,7 @@ A program used to help high school students at VPCI schedule their courses and g
 
 # Installation
 1. Download this project as a .zip file and extract the contents of that .zip file.
-3. From the extracted contents, go to the "Projects" directory and open the StudentTimetable.jar file
+3. From the extracted contents, go to the "Product" directory and open the StudentTimetable.jar file
 
 # Preview
 ![image](https://user-images.githubusercontent.com/32133198/189811549-cb016020-6578-4d01-a6e2-9179ab5b8bb2.png)
